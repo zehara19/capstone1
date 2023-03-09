@@ -1,0 +1,7 @@
+version: "3"
+services:
+  react_demo:
+    image: demo:latest
+    container_name: react 
+    ports:
+      - "3000:3000"
