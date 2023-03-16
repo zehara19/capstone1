@@ -1,9 +1,10 @@
-FROM node:14-alpine
-WORKDIR /app
-COPY package*.json ./
+FROM node:16-alpine as build
+WORKDIR /zehbuildapp
+COPY package*.json /zehbuildapp/
 RUN npm install
 COPY . .
 RUN npm run build
-ENV NODE_ENV=production
+FROM nginx:latest
+COPY --from=build /zehbuildapp/build/ /usr/share/nginx/html/
 EXPOSE 80
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
