@@ -1,7 +1,6 @@
-version: "3"
+version: '3'
 services:
-  react_demo:
-    image: demoimage:s1
-    container_name: react_demo 
+  web:
+    image: zeh/dev:${BUILD_NUMBER}
     ports:
-      - "80:80"
+    - 80:80
