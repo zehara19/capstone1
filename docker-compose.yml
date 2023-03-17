@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: zehara19/capstone-public-dev:${BUILD_NUMBER}
+    ports:
+    - 80:80
