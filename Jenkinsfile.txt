@@ -1,0 +1,37 @@
+pipeline{
+    agent any
+    stages{
+        stage("Build"){
+            steps{
+                echo "We are in Build step now"
+                
+                git branch: 'dev', url: 'https://github.com/zehara19/capstone1.git'
+                sh 'chmod +x ./build.sh'
+                sh 'sh ./build.sh'
+                
+            }
+        }
+        stage("Push"){
+            steps{
+                echo "We are in push stage"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo "We are in deploy stage"
+            }
+        }
+    }
+
+post{
+    always{
+        echo "This is a normal messgae which gets printed even if success or failure. We can also use this to do any cleanup activity"
+    }
+    success{
+        echo "Its success, congratulations"
+    }
+    failure{
+        echo "Its failure, sorry"
+    }
+}
+}
