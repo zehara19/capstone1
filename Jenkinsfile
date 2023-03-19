@@ -36,13 +36,13 @@ pipeline{
 
 post{
     always{
-        echo "This is a normal messgae which gets printed even if success or failure. We can also use this to do any cleanup activity"
+        echo "A normal messgae which gets printed on success or failure."
     }
     success{
-        echo "Its success, congratulations"
+        echo "It's success"
     }
     failure{
-        echo "Its failure, sorry"
+        echo "It's failure"
     }
 }
 }
